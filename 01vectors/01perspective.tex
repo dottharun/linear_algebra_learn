@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath, amssymb}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+
+\section{Vector: 3 perspectives - Physics, Math, CS }
+
+\begin{align*}
+	\begin{bmatrix}
+		7 & 8 & 6 \\
+		6 & 8 & 4 \\
+		7 & 5 & 4 \\
+	\end{bmatrix}
+\end{align*}
+
+\subsection{physics}
+\begin{itemize}
+	\item vectors are arrows in space with length and direction
+	\item so vectors can be moved around in space without any issues
+\end{itemize}
+
+\subsection{cs}
+\begin{itemize}
+	\item vectors are ordered lists of numbers
+\end{itemize}
+
+\subsection{math}
+\begin{itemize}
+	\item seeks to generalize both of these views and defines vector operations such as
+	      addition and multiplication
+\end{itemize}
+
+\subsection{In linear algebra}
+\begin{itemize}
+	\item graham suggests to view vector as arrow with tail always fixed at origin
+	\item maybe i can imagine a vector as a operation of shifting the origin
+	\item thus when we do vector addition we will start the second vector from the
+	      start of first vector, since the origin has been shifted by the first vector
+	\item Note: "but" it could really be shifting of all the points in the coordinate system
+	      (as told by graham)
+\end{itemize}
+
+\subsection{Scalars}
+\begin{itemize}
+	\item The numbers that we multiply the vector with to scale the vector
+	      in its original direction
+	\item since it's used frequently it just interchangeable with number
+\end{itemize}
+
+
+\newpage
+\section{Linear Combinations, Spans, Basis Vectors}
+
+\subsection{Vector Coordinates}
+\begin{itemize}
+	\item vector coordinates are the number numbers present in a vector
+	\item Each of the vector coordinates is also a scalar
+	      that scales the unit vectors of the coordinate system $\hat{i}, \hat{j}$
+\end{itemize}
+
+\subsection{Span}
+Span of $\vec{v} \text{ and } \vec{w}$ are the set of all of their linear combinations
+\[
+	a \vec{v} + b \vec{w}
+\]
+
+Note: Its common to think a collection of vectors as points, due to clustering/noise
+
+\subsection{Linearly dependent Vectors}
+\begin{itemize}
+	\item If the third vector can be formed by linear combination of the other vectors
+	      then the vectors are said to be linearly dependent
+	\item If we cannot get a vector by linear combination of other vectors then
+	      then those vectors are called as linearly independent
+\end{itemize}
+
+\subsection{Basis}
+\begin{itemize}
+	\item basis of a vector space is a set of linearly independent vectors
+	      that span the full space
+\end{itemize}
+
+\end{document}
