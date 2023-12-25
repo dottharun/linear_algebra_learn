@@ -58,7 +58,7 @@
 \begin{itemize}
 	\item vector coordinates are the number numbers present in a vector
 	\item Each of the vector coordinates is also a scalar
-	      that scales the unit vectors of the coordinate system $\hat{i}, \hat{j}$
+	      that scales the basis vectors of the coordinate system $\hat{i}, \hat{j}$
 \end{itemize}
 
 \subsection{Span}
@@ -83,4 +83,69 @@ Note: Its common to think a collection of vectors as points, due to clustering/n
 	      that span the full space
 \end{itemize}
 
+\newpage
+\section{Linear Transformation and matrices}
+Transformations are just "functions" just suggests to visualize
+every function as a movement of coordinates(changing of basis vectors,
+thus changing of all of coordinate system)
+
+\subsection{Linear transformation in graph}
+\begin{itemize}
+	\item every lines will remain parallel
+	\item and origin will remain at center
+\end{itemize}
+
+\subsection{Matrix Transformation}
+\begin{itemize}
+	\item A 2 dimensional linear transformation of a coordinates
+	      system can be entirely described just 4 numbers (a 2d matrix)
+	\item  In a matrix each of the column is the final landing
+	      basis vector
+	\item thus, matrix $\implies$ transformation data
+	\item
+	      \[
+		      \begin{bmatrix} a & b \\
+                c & d\end{bmatrix}
+		      \begin{bmatrix} x \\ y \end{bmatrix}
+		      = \underbrace{x\begin{bmatrix} a \\ c\end{bmatrix}
+			      + y \begin{bmatrix} b \\ d  \end{bmatrix}}
+		      _{\text{intuition}}
+		      = \begin{bmatrix} ax + by \\
+			      cx + dy\end{bmatrix} \\
+	      \]
+\end{itemize}
+
+Note:
+\begin{itemize}
+	\item by summary: Matrix $\implies$ set of transformed basis vectors
+	\item thus giving transformation data of the space(coordinate system)
+\end{itemize}
+
+
+\newpage
+\section{Matrix Multiplication as Composition}
+
+\subsection{Composition matrix}
+\begin{itemize}
+	\item when a series of transformation occurs the "overall"
+	      transformation matrix is called as composition matrix
+	\item this composition matrix is formed by matrix multiplication
+	      of each transformation matrix --from right to left
+	\item \[
+		      \stackrel{
+		      \begin{tabular}{c}
+			      f(g(x))                   \\
+			      \text{Read right to left} \\
+		      \end{tabular}
+		      }{
+		      \overleftarrow{
+		      \underbrace{\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}}
+		      _{\text{2nd transformation}}
+		      \underbrace{\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}}
+		      _{\text{1st transformation}}
+		      }
+		      }
+		      = \begin{bmatrix} 1 & -1 \\ 1 & 0\end{bmatrix} \\
+	      \]
+\end{itemize}
 \end{document}
