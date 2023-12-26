@@ -118,7 +118,8 @@ thus changing of all of coordinate system)
 Note:
 \begin{itemize}
 	\item by summary: Matrix $\implies$ set of transformed basis vectors
-	\item thus giving transformation data of the space(coordinate system)
+	\item thus giving transformation data of the
+	      space(coordinate system)
 \end{itemize}
 
 
@@ -127,17 +128,15 @@ Note:
 
 \subsection{Composition matrix}
 \begin{itemize}
-	\item when a series of transformation occurs the "overall"
-	      transformation matrix is called as composition matrix
-	\item this composition matrix is formed by matrix multiplication
-	      of each transformation matrix --from right to left
+	\item when a series of transformation occurs the
+	      "overall" transformation matrix is called
+	      as composition matrix
+	\item this composition matrix is formed by matrix
+	      multiplication of each transformation matrix
+	      --from right to left
 	\item \[
-		      \stackrel{
-		      \begin{tabular}{c}
-			      f(g(x))                   \\
-			      \text{Read right to left} \\
-		      \end{tabular}
-		      }{
+		      \overset{f(g(x))}{
+		      \overset{\text{Read right to left}}{
 		      \overleftarrow{
 		      \underbrace{\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}}
 		      _{\text{2nd transformation}}
@@ -145,7 +144,45 @@ Note:
 		      _{\text{1st transformation}}
 		      }
 		      }
+		      }
 		      = \begin{bmatrix} 1 & -1 \\ 1 & 0\end{bmatrix} \\
 	      \]
+	\item thus we can prove the associative nature of
+	      matrix multiplication by just intuition alone
+	      \[
+		      (AB)C = A(BC)
+	      \]
 \end{itemize}
+
+\newpage
+\section{Three dimensional linear transformations}
+Consider a linear transformation with 3d vector as input
+and output
+\[
+	\underset{\text{Input}}{
+		\begin{bmatrix} 2 \\ 6 \\ -1 \end{bmatrix}
+	}
+	\xrightarrow{L (\vec{v})}
+	\underset{\text{Output}}{
+		\begin{bmatrix} 3 \\ 2 \\ 0 \end{bmatrix}
+	}
+\]
+
+\begin{itemize}
+	\item This means with the given transformation function
+	      $L$. The vector point (2, 6, -1) is transformed
+	      to (3, 2, 0)
+	\item In matrix form $L$ must be a 3 by 3 matrix, since
+	      there are 3 basis vectors in 3 dimensions
+	\item Ex:
+	      \[
+		      \begin{bmatrix} 0 & 1 & 2 \\
+                3 & 4 & 5 \\
+                6 & 7 & 8 \\\end{bmatrix}
+	      \]
+\end{itemize}
+
+\newpage
+\section{Determinant}
+
 \end{document}
