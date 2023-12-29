@@ -102,13 +102,16 @@ thus changing of all of coordinate system)
 	\item  In a matrix each of the column is the final landing
 	      basis vector
 	\item thus, matrix $\implies$ transformation data
-	\item
-	      \[
+	\item \[
 		      \begin{bmatrix} a & b \\
                 c & d\end{bmatrix}
-		      \begin{bmatrix} x \\ y \end{bmatrix}
-		      = \underbrace{x\begin{bmatrix} a \\ c\end{bmatrix}
-			      + y \begin{bmatrix} b \\ d  \end{bmatrix}}
+		      \begin{bmatrix} x \\ y
+		      \end{bmatrix}
+		      = \underbrace{x
+			      \begin{bmatrix} a \\ c
+			      \end{bmatrix}
+			      + y \begin{bmatrix} b \\ d
+			      \end{bmatrix}}
 		      _{\text{intuition}}
 		      = \begin{bmatrix} ax + by \\
 			      cx + dy\end{bmatrix} \\
@@ -135,17 +138,25 @@ Note:
 	      multiplication of each transformation matrix
 	      --from right to left
 	\item \[
-		      \overset{f(g(x))}{
-		      \overset{\text{Read right to left}}{
+		      \overset{
+		      \substack{
+			      f(g(x)) \\
+			      \text{Read right to left}
+		      }
+		      }{
 		      \overleftarrow{
-		      \underbrace{\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}}
+		      \underbrace{
+			      \begin{bmatrix} 1 & 1 \\
+                0 & 1\end{bmatrix}}
 		      _{\text{2nd transformation}}
-		      \underbrace{\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}}
+		      \underbrace{
+			      \begin{bmatrix} 0 & -1 \\ 1 & 0
+			      \end{bmatrix}}
 		      _{\text{1st transformation}}
 		      }
 		      }
-		      }
-		      = \begin{bmatrix} 1 & -1 \\ 1 & 0\end{bmatrix} \\
+		      = \begin{bmatrix} 1 & -1 \\
+                1 & 0\end{bmatrix} \\
 	      \]
 	\item thus we can prove the associative nature of
 	      matrix multiplication by just intuition alone
@@ -184,5 +195,168 @@ and output
 
 \newpage
 \section{Determinant}
+\begin{itemize}
+	\item To measure the stretching and squishing of a
+	      transformation
+	\item factor by which the area(in 2D) of the system
+	      changes
+	\item It is given by "determinant" of a matrix
+	      transformation
+	\item generally we compare the area change in basis
+	      vectors
+	\item same way in 3d space volume is scaled and given
+	      by determinant
+\end{itemize}
+
+\subsection{Computing determinant}
+\begin{itemize}
+	\item For a $2 \times 2$ matrix the formula is given by
+	      \[
+		      det\left(
+		      \begin{bmatrix} a & b \\
+                c & d \\\end{bmatrix}  \right)
+		      = a d - b c
+	      \]
+	\item The intuition for this formula can be
+	      obtained by assuming variables c and d to be 0,
+	      then a and d are just the multipliers in
+	      their axis for basis vectors in their
+	      transformation
+	      \[
+		      det\left( \begin{bmatrix}
+				      a & 0 \\
+				      0 & d \\\end{bmatrix}  \right)
+		      = a d - 0 \cdot 0 \\
+	      \]
+	\item rigorous proof involves finding area of
+	      parallelogram
+\end{itemize}
+
+\subsection{Property}
+\begin{itemize}
+	\item \[
+		      det(M_1 M_2) = det(M_1) det(M_2) \\
+	      \]
+\end{itemize}
+
+\newpage
+\section{Usefulness of Matrices}
+\begin{itemize}
+	\item When we have many linear equations of many variables with degree 1,
+	      we can use matrices to solves those equations
+	\item  Only things that's happening to those variables are they are
+	      scaled by some scalars and added together to get some constant
+	      \begin{align*}
+		      2x + 5y + 3z & = -3 \\
+		      4x + 0y + 8z & = 0  \\
+		      1x + 3y + 0z & = 2  \\
+	      \end{align*}
+	\item this is called as a "linear system of equations", this can be
+	      written in matrix form as
+	      \begin{align*}
+		      \overbrace{
+			      \begin{bmatrix}
+				      2 & 5 & 3 \\
+				      4 & 0 & 8 \\
+				      1 & 3 & 0 \\\end{bmatrix}
+		      }^{A}
+		      \overbrace{
+			      \begin{bmatrix}
+				      x \\ y \\ z \\ \end{bmatrix}
+		      }^{\vec{\text{x}}}
+		       & = \overbrace{
+			      \begin{bmatrix}
+				      -3 \\ 0  \\ 2 \\ \end{bmatrix}
+		      }^{\vec{\text{v}}}  \\
+		      A \vec{\text{x}}
+		       & = \vec{\text{v}} \\
+	      \end{align*}
+	\item now the problem of three multi variable linear equations
+	      has become a single matrix transformation equation
+	\item Here exactly, a unknown variable vector $\vec{\text{x}}$
+	      after applying a transformation $A$ becomes this exact
+	      vector $\vec{\text{v}}$
+\end{itemize}
+
+\subsection{Inverse Matrices}
+During a transformation, either we can have determinant zero or non-zero,
+which implies input dimensions are reduced or not reduced
+---lossy transformation ---not sure though
+
+\subsubsection{Non-Zero Determinant}
+\begin{itemize}
+	\item Thus when we consider a transformation with determinant equals zero
+	\item There exists another transformation with the exact opposite/reverse
+	      \linebreak movement of the given transformation
+	\item thus when both of these transformation are applied in series
+	      to a input vector will output the same vector
+	      \[
+		      \underbrace{A^{-1} A}
+		      _{\text{Matrix Multiplication}}
+		      = \underbrace{
+			      \begin{bmatrix} 1 & 0 \\
+                0 & 1 \\\end{bmatrix}
+		      }_{\text{The transformation does nothing}}
+	      \]
+	\item Once we have the inverse matrix $A^{-1}$, we can solve the
+	      above equation \newline easily by applying the
+	      reverse transformation on the output vector
+	      \begin{align*}
+		      \underbrace{A^{-1} A }
+		      _{\text{The "do nothing" matrix}}
+		      \vec{\text{x}}
+		       & = A^{-1} \vec{\text{v}} \\
+		      \vec{\text{x}}
+		       & = A^{-1} \vec{\text{v}} \\
+	      \end{align*}
+\end{itemize}
+
+\subsubsection{Zero Determinant}
+\begin{itemize}
+	\item The transformation squishes space into smaller dimension
+	\item No inverse transformation(---matrix) exists, since that
+	      would require \newline output of multiple vectors for a
+	      single input for the inverse transformation
+\end{itemize}
+
+\subsection{Rank for a Transformation}
+\begin{itemize}
+	\item Means no of dimensions in the output of a transformation
+	\item Rank 1 means line output, \newline
+	      Rank 2 means plane output, \newline
+	      Rank 3 means solid output
+\end{itemize}
+
+\subsection{Column Space for a Transformation}
+\begin{itemize}
+	\item Set of all possible output vectors for the given transformation
+	      \[
+		      A \vec{\text{x}}
+	      \]
+	\item the name is Column space is used because,
+	      columns in a matrix represent the transformed basis vectors
+	\item and the span of these transformed basis vectors will give us the
+	      Column space of the transformation
+\end{itemize}
+
+Note:
+\begin{itemize}
+	\item Thus the precise definition of rank will be the no of dimensions in
+	      the column space
+	\item  when the rank is the highest and equal to no of columns,
+	      then we call the matrix "full rank"
+\end{itemize}
+
+\subsection{Null Space}
+\begin{itemize}
+	\item Note: In linear transformations the column space will always include
+	      origin
+	\item for a full-rank transformation, only one vector from the input
+	      will land on origin, i.e: the zero vector itself
+	\item but for any other lower rank transformations, many input
+	      vectors will fall into origin in the output column space
+	\item this set of vectors that land on the origin is called the
+	      "Null Space"/ "Kernel" of a matrix-transformation
+\end{itemize}
 
 \end{document}
