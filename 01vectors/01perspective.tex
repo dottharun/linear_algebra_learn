@@ -212,7 +212,7 @@ and output
 \begin{itemize}
 	\item For a $2 \times 2$ matrix the formula is given by
 	      \[
-		      det\left(
+		      \text{det}\left(
 		      \begin{bmatrix} a & b \\
                 c & d \\\end{bmatrix}  \right)
 		      = a d - b c
@@ -223,19 +223,43 @@ and output
 	      their axis for basis vectors in their
 	      transformation
 	      \[
-		      det\left( \begin{bmatrix}
+		      \text{det}\left( \begin{bmatrix}
 				      a & 0 \\
 				      0 & d \\\end{bmatrix}  \right)
 		      = a d - 0 \cdot 0 \\
 	      \]
 	\item rigorous proof involves finding area of
 	      parallelogram
+	\item For $3 \times 3$ Matrix:
+	      \begin{align*}
+		      \text{ det}\left(
+		      \begin{bmatrix}
+				      a & b & c \\
+				      d & e & f \\
+				      g & h & i\end{bmatrix}
+		      \right)
+		       & = a \text{ det}\left(
+		      \begin{bmatrix}
+				      e & f \\
+				      h & i\end{bmatrix}
+		      \right)                  \\
+		       & - b \text{ det}\left(
+		      \begin{bmatrix}
+				      d & f \\
+				      g & i\end{bmatrix}
+		      \right)                  \\
+		       & + c \text{ det}\left(
+		      \begin{bmatrix}
+				      d & e \\
+				      g & h\end{bmatrix}
+		      \right)                  \\
+	      \end{align*}
 \end{itemize}
 
 \subsection{Property}
 \begin{itemize}
 	\item \[
-		      det(M_1 M_2) = det(M_1) det(M_2) \\
+		      \text{det}(M_1 M_2) = \text{det}(M_1) \text{det}(M_2) \\
 	      \]
 \end{itemize}
 
@@ -360,5 +384,218 @@ Note:
 	\item this set of vectors that land on the origin is called the
 	      "Null Space"/ "Kernel" of a matrix-transformation
 \end{itemize}
+
+
+\newpage
+\section{Non Square Matrices}
+
+\begin{itemize}
+	\item For a $3 \times 2$ matrix,
+	      \[
+		      \begin{bmatrix} 3 & 1 \\
+                4 & 1 \\
+                5 & 9 \\\end{bmatrix}
+	      \]
+	\item this takes in 2D input space and outputs a 3D space
+	      \[
+		      \underbrace{
+			      \begin{bmatrix} 2 \\
+				      7\end{bmatrix}
+		      }_{\text{2d Input}}
+		      \to
+		      L(\vec{\text{v}})
+		      \to
+		      \underbrace{
+			      \begin{bmatrix} 1 \\
+				      8 \\
+				      2\end{bmatrix}
+		      }_{\text{3d Output}}
+	      \]
+	\item intuitively this can be observed because we know the columns are the
+	      \newline transformed basis vectors, and here the columns are given by
+	      3-dimensions and there is only 2 columns which $\implies$ that
+	      input space has only 2 basis vectors thus 2 dimensions
+	\item also told as "Column space" of this matrix is 3d
+\end{itemize}
+
+\subsection{Linearity}
+\begin{itemize}
+	\item Here Linearity changes for any transformation
+	\item Eg: line of evenly spaced dots must remain evenly spaced
+\end{itemize}
+
+\newpage
+\section{Dot Product and Duality}
+
+\subsection{Dot product standard introduction}
+\begin{itemize}
+	\item When given two vectors of same dimensions, dot product of them is
+	      sum of product of each pair of basis vector scalars
+	      \[
+		      \underbrace{
+			      \begin{bmatrix}
+				      2 \\
+				      7 \\
+				      1\end{bmatrix}
+			      \cdot
+			      \begin{bmatrix}
+				      8 \\
+				      2 \\
+				      8\end{bmatrix}
+		      }_{\text{ Dot product }}
+		      = 2 \cdot 8
+		      + 7 \cdot 2
+		      + 1 \cdot 8
+	      \]
+	\item It is a "Scalar"
+	\item Geometrically the dot product can be given as the product of
+	      length of one vector with projected length of second vector
+	      on first vector
+	\item Note: Mechanical work is the dot product of force and displacement
+	      \newline vectors. Magnetic flux is the dot product of
+	      the magnetic field and the area vectors.
+\end{itemize}
+
+\subsection{$1 \times 2 $ Transformation and Dot product}
+\begin{itemize}
+	\item Consider the transformation of 2d plane to 1d line,
+	      \[
+		      \text{Transformation Matrix:}
+		      \begin{bmatrix}
+			      2 & 1 \end{bmatrix}
+	      \]
+	\item Then when we apply this transformation to a vector,
+	      $ \vec{\text{v}} = \begin{bmatrix} 4 \\ 3 \end{bmatrix} $
+	      \[
+		      \overbrace{
+			      \begin{bmatrix}
+				      1 & -2 \end{bmatrix}
+		      }^{\text{Transform}}
+		      \underbrace{
+			      \begin{bmatrix}
+				      4 \\ 3 \end{bmatrix}
+		      }_{\text{Vector}}
+		      = 4 \cdot 1
+		      + 3 \cdot -2
+	      \]
+	\item Now this just resembles dot product of two vectors
+	\item This suggests a connection between linear transformation
+	      of vectors to numbers ($1 \times 2 \text{ Matrices} $)
+	      and Vectors themselves
+\end{itemize}
+
+\subsection{Projection as a Transformation}
+\begin{itemize}
+	\item when we consider a imaginary line on our 2d space with
+	      basis vector ($\vec{\text{u}}$)
+	\item Projection of any vector(2d) on this line to get
+	      a scalar magnitude(1d) can be considered as a
+	      "Projection Transformation" with a
+	      $1 \times 2$ matrix
+	\item By symmetry, Graham finds the transformation
+	      matrix for this projection is the matrix of projections
+	      of $\vec{\text{u}}$ on x-axis and y-axis
+	      \[
+		      \text{Projection Transformation: }
+		      \begin{bmatrix}
+			      u_{x} & u_{y}  \end{bmatrix}
+	      \]
+	\item Now for any vector in space the projection
+	      on the imaginary line can be calculated as
+	      \[
+		      \overbrace{
+			      \begin{bmatrix}
+				      u_{x} & u_{y}  \end{bmatrix}
+		      }^{\text{Transform}}
+		      \underbrace{
+			      \begin{bmatrix}
+				      x \\
+				      y\end{bmatrix}
+		      }_{\text{Vector}}
+		      = u_{x} \cdot x
+		      + u_{y} \cdot y
+	      \]
+	\item This is exactly similar to dot product of vector
+	      with unit vector
+	\item This is why "Taking a dot product with a unit vector"
+	      can be interpreted the same as
+	      "Projection(length) of the vector on the unit vector"
+	\item For dot product with non-unit vectors:
+	      \begin{itemize}
+		      \item we extend our projection method by
+		      \item first projection the given vector to the
+		            other vector's unit vector
+		      \item then scale the projection according to the
+		            scale of the other vector
+	      \end{itemize}
+\end{itemize}
+
+\subsection{Duality}
+\begin{itemize}
+	\item It loosely means natural but surprising correspondence
+	      between two different mathematical thing
+	\item Here we can say that the dual of a vector is the
+	      linear transformation it encodes
+	\item and the dual of a linear transformation of some space to
+	      one dimension is a certain vector in the first space
+\end{itemize}
+
+\subsection{Conclusion}
+\begin{itemize}
+	\item Thus dot products are on surface very useful
+	      geometric tools for understanding projections
+	\item and to test whether two vectors are pointing in
+	      similar direction (dot product of perpendiculars is
+	      zero)
+	\item but on a deeper level we understand that dot
+	      product means one vector is matrix transformed onto
+	      other vector as number line and scaled by the number line
+	      vector subsequently
+\end{itemize}
+
+\newpage
+\section{Cross Product and Duality}
+
+\subsection{Cross Product Standard Introduction}
+\begin{itemize}
+	\item In 2d: The parallelogram area enclosed between two
+	      vectors is the cross product magnitude of the two
+	      vectors
+	      \[
+		      \vec{\text{v}}
+		      \times
+		      \vec{\text{w}}
+		      = \text{Area of Parallelogram}
+	      \]
+	\item Trick to remember sign of the cross product: \newline
+	      $\hat{i} \times \hat{j}$ is positive, so only if the
+	      order of vectors is from right to left
+	      the product is positive
+	\item They also contain direction, given by "right hand rule",
+	      perpendicular to both the vectors/parallelogram
+	\item "Notation-Trick" to compute cross product:
+	      \begin{align*}
+		      \begin{bmatrix}
+			      v_1 \\
+			      v_2 \\
+			      v_3\end{bmatrix}
+		      \times
+		      \begin{bmatrix}
+			      w_1 \\
+			      w_2 \\
+			      w_3\end{bmatrix}
+		       & = \text{det}\left(
+		      \begin{bmatrix}
+				      \hat{i} & v_1 & w_1 \\
+				      \hat{j} & v_2 & w_2 \\
+				      \hat{k} & v_3 & w_3\end{bmatrix}
+		      \right)                       \\
+		       & = \hat{i}(v_2w_3 - v_3w_2)
+		      + \hat{j}(v_3w_1 - v_1w_3)
+		      + \hat{k}(v_1w_2 - v_2w_1)    \\
+	      \end{align*}
+\end{itemize}
+
+\subsection{Cross Product as Linear Transformation}
 
 \end{document}
