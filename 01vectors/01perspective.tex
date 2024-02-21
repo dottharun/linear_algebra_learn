@@ -56,7 +56,7 @@
 
 \subsection{Vector Coordinates}
 \begin{itemize}
-	\item vector coordinates are the number numbers present in a vector
+	\item vector coordinates are the numbers present in a vector
 	\item Each of the vector coordinates is also a scalar
 	      that scales the basis vectors of the coordinate system $\hat{i}, \hat{j}$
 \end{itemize}
@@ -385,7 +385,6 @@ Note:
 	      "Null Space"/ "Kernel" of a matrix-transformation
 \end{itemize}
 
-
 \newpage
 \section{Non Square Matrices}
 
@@ -500,7 +499,6 @@ Note:
 		      \begin{bmatrix}
 			      u_{x} & u_{y}  \end{bmatrix}
 	      \]
-	\item Now for any vector in space the projection
 	      on the imaginary line can be calculated as
 	      \[
 		      \overbrace{
@@ -556,7 +554,7 @@ Note:
 \newpage
 \section{Cross Product and Duality}
 
-\subsection{Cross Product Standard Introduction}
+\subsection{Cross Product Standard Introduction - for normal students}
 \begin{itemize}
 	\item In 2d: The parallelogram area enclosed between two
 	      vectors is the cross product magnitude of the two
@@ -567,13 +565,17 @@ Note:
 		      \vec{\text{w}}
 		      = \text{Area of Parallelogram}
 	      \]
-	\item Trick to remember sign of the cross product: \newline
-	      $\hat{i} \times \hat{j}$ is positive, so only if the
-	      order of vectors is from right to left
-	      the product is positive
-	\item They also contain direction, given by "right hand rule",
-	      perpendicular to both the vectors/parallelogram
-	\item "Notation-Trick" to compute cross product:
+	\item Trick to remember sign of the cross product:
+	      \begin{itemize}
+		      \item $\hat{i} \times \hat{j}$ is positive,
+		      \item so only if the order of vectors is from right to left
+		            (In graph, i.e from $\hat{i} \text{ to } \hat{j}$)
+		            the cross product is positive
+	      \end{itemize}
+	\item Resultant vector's direction, given by "right hand rule", is
+	      perpendicular to both of the given vectors/parallelogram
+	\item "Notation-Trick" to compute cross product: --this is weird
+	      - using $\hat{i}, \hat{j}, \ldots$ - symbols as numbers in matrix
 	      \begin{align*}
 		      \begin{bmatrix}
 			      v_1 \\
